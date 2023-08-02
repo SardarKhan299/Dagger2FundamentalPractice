@@ -13,11 +13,23 @@ class Car(private val engine1:Engine) {
     // system will provide the dependencies..our class will not create the dependencies...//
 
 
+    // use of Field injection..//
+    // we can set this from outside the app using global variable..//
+    private lateinit var engine2:Engine
+
+    // its value will be set with method injection....//
+    private lateinit var engine3:Engine
+
+
     private var engine:Engine = Engine()
 
     fun startCar(){
         engine.start()
         engine1.start()
+    }
+
+    fun setEngine3Object(engine3: Engine){
+        this.engine3 = engine3
     }
 
 }

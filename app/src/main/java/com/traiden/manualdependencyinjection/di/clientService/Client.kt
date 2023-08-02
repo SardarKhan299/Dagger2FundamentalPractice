@@ -5,6 +5,7 @@ class Client (private val service1: Service1){
 
     private lateinit var service2 : Service2
     // property or field injection..///
+    // we can set this from outside the app using global variable..//
     lateinit var service3: Service3
 
     // method injection..//
