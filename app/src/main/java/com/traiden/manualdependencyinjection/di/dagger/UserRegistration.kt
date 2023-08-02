@@ -1,5 +1,10 @@
 package com.traiden.manualdependencyinjection.di.dagger
 
+
+// unit Test...///
+// Single Responsibility...//
+// Life Time of Objects..//
+// Extensible..//
 class UserRegistration {
     private val userRepo=UserRepo()
     private val emailService = EmailService()
