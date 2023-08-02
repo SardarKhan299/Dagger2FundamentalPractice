@@ -5,9 +5,11 @@ package com.traiden.manualdependencyinjection.di.dagger
 // Single Responsibility...//
 // Life Time of Objects..//
 // Extensible..//
-class UserRegistration {
-    private val userRepo=UserRepo()
-    private val emailService = EmailService()
+// constructor injection...//
+class UserRegistration(private val userRepo: UserRepo, private val emailService: EmailService) {
+
+//    private val userRepo=UserRepo()
+//    private val emailService = EmailService()
 
     fun registerUser(email:String, password:String){
         userRepo.saveUser(email,password)
