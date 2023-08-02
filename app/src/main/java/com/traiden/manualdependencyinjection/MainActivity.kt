@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
 //        val userRepo = UserRepo()
 //        val emailService = EmailService()
 //        val userRegistration = UserRegistration(userRepo,emailService)
+        val emailService = component.getEmailService()
         component.getUserRegistrationService().registerUser("test@gmail.com","123")
 
     }
