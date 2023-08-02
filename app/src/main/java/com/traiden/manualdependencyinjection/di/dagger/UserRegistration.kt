@@ -1,12 +1,14 @@
 package com.traiden.manualdependencyinjection.di.dagger
 
+import javax.inject.Inject
+
 
 // unit Test...///
 // Single Responsibility...//
 // Life Time of Objects..//
 // Extensible..//
 // constructor injection...//
-class UserRegistration(private val userRepo: UserRepo, private val emailService: EmailService) {
+class UserRegistration @Inject constructor(private val userRepo: UserRepo, private val emailService: EmailService) {
 
 //    private val userRepo=UserRepo()
 //    private val emailService = EmailService()
