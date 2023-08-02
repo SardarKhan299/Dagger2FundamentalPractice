@@ -1,4 +1,4 @@
-package com.traiden.manualdependencyinjection.di
+package com.traiden.manualdependencyinjection.di.clientService
 
 // Constructor Injection..//
 class Client (private val service1: Service1){
@@ -8,7 +8,7 @@ class Client (private val service1: Service1){
     lateinit var service3: Service3
 
     // method injection..//
-    fun setService2(service2:Service2){
+    fun setService2(service2: Service2){
         this.service2 = service2
     }
 
