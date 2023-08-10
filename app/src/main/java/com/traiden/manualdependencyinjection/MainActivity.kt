@@ -2,20 +2,24 @@ package com.traiden.manualdependencyinjection
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.traiden.manualdependencyinjection.di.dagger.DaggerUserRegistrationComponent
-import com.traiden.manualdependencyinjection.di.dagger.EmailService
-import com.traiden.manualdependencyinjection.di.dagger.UserRegistration
-import com.traiden.manualdependencyinjection.di.dagger.UserRegistrationComponent
-import com.traiden.manualdependencyinjection.di.dagger.UserRepo
+import android.util.Log
+import com.traiden.manualdependencyinjection.di.carBuild.Car
+import com.traiden.manualdependencyinjection.di.carBuild.Engine
+import com.traiden.manualdependencyinjection.di.dagger.*
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
+
+    // Example of Field Injections..///
 
     @Inject
     lateinit var userRegistration: UserRegistration
 
     @Inject
     lateinit var emailService: EmailService
+
+    @Inject
+    lateinit var userRepo: UserRepo
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,11 +28,14 @@ class MainActivity : AppCompatActivity() {
 
         val component = DaggerUserRegistrationComponent.builder().build()
         component.inject(this)
-//        val userRepo = UserRepo()
-//        val emailService = EmailService()
-//        val userRegistration = UserRegistration(userRepo,emailService)
-//        val emailService = component.getEmailService()
         userRegistration.registerUser("test@gmail.com","123")
+
+//        val appComponent = DaggerAppComponent.builder().build()
+//        val engine = appComponent.getEngineObject()
+//        val car = Car(engine)
+//        Log.d(MainActivity::class.simpleName, "onCreate: ${car.startCar()}")
+
+
 
     }
 }
