@@ -8,13 +8,10 @@ import javax.inject.Inject
 // Life Time of Objects..//
 // Extensible..//
 // constructor injection...//
-class UserRegistration @Inject constructor(private val userRepo: UserRepo, private val emailService: EmailService) {
-
-//    private val userRepo=UserRepo()
-//    private val emailService = EmailService()
+class UserRegistration @Inject constructor(private val userRepo: UserRepository, private val notificationService: NotificationService) {
 
     fun registerUser(email:String, password:String){
         userRepo.saveUser(email,password)
-        emailService.send(email,"test@gmail.com","Hello")
+        notificationService.send(email,"test@gmail.com","Hello")
     }
 }

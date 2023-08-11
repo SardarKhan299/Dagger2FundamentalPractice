@@ -5,7 +5,7 @@ import com.traiden.manualdependencyinjection.di.carBuild.Car
 import com.traiden.manualdependencyinjection.di.carBuild.Engine
 import dagger.Component
 
-@Component
+@Component(modules = [UserRepositoryModule::class,NotificationServiceModule::class])
 interface UserRegistrationComponent {
    fun inject(mainActivity: MainActivity)
 }
