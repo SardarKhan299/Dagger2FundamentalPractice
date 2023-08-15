@@ -2,6 +2,7 @@ package com.traiden.manualdependencyinjection
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.traiden.manualdependencyinjection.di.app.MyApplication
 import com.traiden.manualdependencyinjection.di.dagger.*
 import com.traiden.manualdependencyinjection.di.dagger.component.DaggerUserRegistrationComponent
 import com.traiden.manualdependencyinjection.di.dagger.modules.NotificationServiceModule
@@ -14,10 +15,16 @@ class MainActivity : AppCompatActivity() {
     @Inject
     lateinit var userRegistration: UserRegistration
 
+    @Inject
+    lateinit var emailService: EmailService
+
+    @Inject
+    lateinit var emailService1: EmailService
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val component = DaggerUserRegistrationComponent.factory().create(3)
+        val component = (application as MyApplication).userRegistrationComponent
         component.inject(this)
         userRegistration.registerUser("test@gmail.com","123")
     }
