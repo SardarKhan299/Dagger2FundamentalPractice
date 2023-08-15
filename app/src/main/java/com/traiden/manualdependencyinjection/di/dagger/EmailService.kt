@@ -6,7 +6,6 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 
-@AppScope
 class EmailService @Inject constructor():NotificationService{
     override fun send(to:String, from:String, body:String){
         Log.d(EmailService::class.simpleName, "send: Sending Email to User...")
