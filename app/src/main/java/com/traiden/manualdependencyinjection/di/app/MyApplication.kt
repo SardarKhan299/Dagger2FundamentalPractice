@@ -2,16 +2,17 @@ package com.traiden.manualdependencyinjection.di.app
 
 import android.app.Application
 import android.util.Log
-import com.traiden.manualdependencyinjection.di.dagger.component.DaggerUserRegistrationComponent
-import com.traiden.manualdependencyinjection.di.dagger.component.UserRegistrationComponent
+import com.traiden.manualdependencyinjection.di.dagger.component.AppComponent
+import com.traiden.manualdependencyinjection.di.dagger.component.DaggerAppComponent
 
 class MyApplication :Application() {
 
-    lateinit var userRegistrationComponent:UserRegistrationComponent
+    lateinit var appComponent: AppComponent
+
 
     override fun onCreate() {
         super.onCreate()
         Log.d(MyApplication::class.simpleName, "onCreate: ")
-        userRegistrationComponent = DaggerUserRegistrationComponent.factory().create(3)
+       appComponent = DaggerAppComponent.builder().build()
     }
 }

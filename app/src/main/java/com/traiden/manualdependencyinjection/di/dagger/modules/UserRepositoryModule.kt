@@ -4,6 +4,7 @@ import com.traiden.manualdependencyinjection.di.dagger.FirebaseRepository
 import com.traiden.manualdependencyinjection.di.dagger.SQLRepository
 import com.traiden.manualdependencyinjection.di.dagger.UserRepository
 import com.traiden.manualdependencyinjection.di.dagger.qualifier.FirebaseQualifier
+import com.traiden.manualdependencyinjection.di.scope.ActivityScope
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -13,6 +14,7 @@ import javax.inject.Named
 class UserRepositoryModule {
 
 
+    @ActivityScope
     @Named("sql")
     @Provides
     fun getSqlRepository(sqlRepository: SQLRepository): UserRepository {
@@ -20,10 +22,11 @@ class UserRepositoryModule {
     }
 
 
+    @ActivityScope
     @FirebaseQualifier
     @Provides
-    fun getFirebaseRepository(): UserRepository {
-        return FirebaseRepository()
+    fun getFirebaseRepository(firebaseRepository: FirebaseRepository): UserRepository {
+        return firebaseRepository
     }
 
 

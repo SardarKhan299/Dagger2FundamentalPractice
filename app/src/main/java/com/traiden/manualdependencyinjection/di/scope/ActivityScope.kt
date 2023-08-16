@@ -1,4 +1,4 @@
-package com.traiden.manualdependencyinjection.di.app
+package com.traiden.manualdependencyinjection.di.scope
 
 import java.lang.annotation.Documented
 import java.lang.annotation.Retention
@@ -8,4 +8,4 @@ import javax.inject.Scope
 @Scope
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
-annotation class AppScope {}
+annotation class ActivityScope{}

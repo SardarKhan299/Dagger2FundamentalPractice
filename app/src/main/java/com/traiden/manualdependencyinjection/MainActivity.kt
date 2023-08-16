@@ -5,6 +5,7 @@ import android.os.Bundle
 import com.traiden.manualdependencyinjection.di.app.MyApplication
 import com.traiden.manualdependencyinjection.di.dagger.*
 import com.traiden.manualdependencyinjection.di.dagger.component.DaggerUserRegistrationComponent
+import com.traiden.manualdependencyinjection.di.dagger.component.UserRegistrationComponent
 import com.traiden.manualdependencyinjection.di.dagger.modules.NotificationServiceModule
 import javax.inject.Inject
 
@@ -24,8 +25,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val component = (application as MyApplication).userRegistrationComponent
-        component.inject(this)
+        val appComponent = (application as MyApplication).appComponent
+        val userRegistrationComponent = DaggerUserRegistrationComponent.factory().create(3,appComponent)
+        userRegistrationComponent.inject(this)
         userRegistration.registerUser("test@gmail.com","123")
     }
 }
