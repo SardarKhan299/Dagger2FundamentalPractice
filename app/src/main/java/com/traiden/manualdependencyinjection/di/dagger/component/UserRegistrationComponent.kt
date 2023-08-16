@@ -7,14 +7,15 @@ import com.traiden.manualdependencyinjection.di.dagger.modules.UserRepositoryMod
 import com.traiden.manualdependencyinjection.di.scope.ActivityScope
 import dagger.BindsInstance
 import dagger.Component
+import dagger.Subcomponent
 
 @ActivityScope
-@Component(dependencies = [AppComponent::class], modules = [UserRepositoryModule::class, NotificationServiceModule::class])
+@Subcomponent(modules = [UserRepositoryModule::class, NotificationServiceModule::class])
 interface UserRegistrationComponent {
    fun inject(mainActivity: MainActivity)
 
-   @Component.Factory
+   @Subcomponent.Factory
    interface Factory {
-      fun create(@BindsInstance retryCount:Int, appComponent: AppComponent) :UserRegistrationComponent
+      fun create(@BindsInstance retryCount:Int) :UserRegistrationComponent
    }
 }
