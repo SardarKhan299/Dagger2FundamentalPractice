@@ -12,5 +12,5 @@ import javax.inject.Singleton
 interface AppComponent {
     //fun getAnalyticsService():AnalyticsService
     // subcomponent
-    fun getUserRegistrationComponentFactory():UserRegistrationComponent.Factory
+    fun getUserRegistrationComponentBuilder():UserRegistrationComponent.Builder
 }
