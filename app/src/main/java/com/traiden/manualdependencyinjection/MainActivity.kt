@@ -2,6 +2,8 @@ package com.traiden.manualdependencyinjection
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.traiden.manualdependencyinjection.analytics.FirebaseAnalytics
+import com.traiden.manualdependencyinjection.analytics.Mixpanel
 import com.traiden.manualdependencyinjection.di.app.MyApplication
 import com.traiden.manualdependencyinjection.di.dagger.*
 import com.traiden.manualdependencyinjection.di.dagger.component.UserRegistrationComponent
@@ -20,6 +22,17 @@ class MainActivity : AppCompatActivity() {
 
     @Inject
     lateinit var emailService1: EmailService
+
+    @Inject
+    lateinit var mix: Mixpanel
+    @Inject
+    lateinit var mix1: Mixpanel
+
+    @Inject
+    lateinit var firebaseAnalytics: FirebaseAnalytics
+
+    @Inject
+    lateinit var firebaseAnalytics1: FirebaseAnalytics
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

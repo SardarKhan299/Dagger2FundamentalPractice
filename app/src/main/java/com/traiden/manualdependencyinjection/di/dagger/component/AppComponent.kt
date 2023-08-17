@@ -1,5 +1,6 @@
 package com.traiden.manualdependencyinjection.di.dagger.component
 
+import android.app.Application
 import com.traiden.manualdependencyinjection.analytics.AnalyticsService
 import com.traiden.manualdependencyinjection.analytics.Mixpanel
 import com.traiden.manualdependencyinjection.di.dagger.modules.AnalyticsModule
@@ -13,4 +14,5 @@ interface AppComponent {
     //fun getAnalyticsService():AnalyticsService
     // subcomponent
     fun getUserRegistrationComponentBuilder():UserRegistrationComponent.Builder
+    fun inject(app:Application)
 }
